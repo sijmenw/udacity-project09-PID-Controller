@@ -34,9 +34,9 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
-  double tauP = 0.6;
+  double tauP = 0.185;
   double tauI = 0.002;
-  double tauD = 8.0;
+  double tauD = 25.0;
   std::cout << "Using: " << tauP << " " << tauI << " " << tauD << std::endl;
   pid.Init(tauP, tauI, tauD);
 
@@ -66,7 +66,7 @@ int main()
           * another PID controller to control the speed!
           */
           steer_value = -pid.TotalError();
-          throttle_value = 0.3; //(1 - std::abs(steer_value)) * 0.5 + 0.2;
+          throttle_value = 0.7; //(1 - std::abs(steer_value)) * 0.5 + 0.2;
 
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
